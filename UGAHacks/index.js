@@ -48,7 +48,7 @@ window.onload = function() {
     }
     // create_join_form() creates the join form
     create_join_form(){
-      // YOU MUST HAVE (PARENT = THIS). OR NOT. I'M NOT YOUR BOSS!😂
+      // YOU MUST HAVE (PARENT = THIS)
       var parent = this;
 
       var join_container = document.createElement('div')
@@ -124,7 +124,6 @@ window.onload = function() {
     create_chat(){
       // Again! You need to have (parent = this)
       var parent = this;
-      // GET THAT MEMECHAT HEADER OUTTA HERE
       var title_container = document.getElementById('title_container')
       var title = document.getElementById('title')
       title_container.classList.add('chat_title_container')
@@ -267,8 +266,6 @@ window.onload = function() {
           return
         }
 
-        // OK! SO IF YOU'RE A ROOKIE CODER. THIS IS GOING TO BE
-        // SUPER EASY-ISH! I THINK. MAYBE NOT. WE'LL SEE!
 
         // convert the message object values to an array.
         var messages = Object.values(messages_object.val());
@@ -283,7 +280,7 @@ window.onload = function() {
           unordered.push([messages[i], messages[i].index]);
         }
 
-        // Now this is straight up from stack overflow 🤣
+        // Now this is straight up from stack overflow
         // Sort the unordered messages by the guide
         guide.forEach(function(key) {
           var found = false
