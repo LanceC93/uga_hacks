@@ -14,27 +14,29 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth()
 const database = firebase.database()
 
-let x = 0
+var isLoginPage = false
 
 // Set up our register function
 function register () {
+  // changing title
   document.getElementById("form_header").innerHTML = "Register"
+  if (!isLoginPage) {
 
-
-  x = 1
   // Get all our input fields
   email = document.getElementById('email').value
   password = document.getElementById('password').value
   region = document.getElementById('region').value
+  age = document.getElementById('age').value
+  gender = document.getElementById('gender').value
 
   // Validate input fields
   if (validate_email(email) == false || validate_password(password) == false) {
-    alert('Email or Password is Outta Line!!')
+    alert('Email or Password is invalid')
     return
     // Don't continue running the code
   }
 
-  if(validate_field(region) == false){
+  if(validate_field(region) == false || validate_field(age) == false || validate_field(gender) == false){
     alert('No input')
     return false
   }
@@ -52,6 +54,8 @@ function register () {
     var user_data = {
       email : email,
       region: region,
+      age: age,
+      gender: gender,
       last_login : Date.now()
     }
 
@@ -68,19 +72,27 @@ function register () {
 
     alert(error_message)
   })
+  } else {
+    // adding inputs
+    document.getElementById("age").style.visibility = 'visible'
+    document.getElementById("gender").style.visibility = 'visible'
+    document.getElementById("region").style.visibility = 'visible'
+    isLoginPage = false
+  }
 }
 
 // Set up our login function
 function login () {
+  // title
   document.getElementById("form_header").innerHTML = "Login"
-  x = 0
+  if (isLoginPage) {
   // Get all our input fields
   email = document.getElementById('email').value
   password = document.getElementById('password').value
 
   // Validate input fields
   if (validate_email(email) == false || validate_password(password) == false) {
-    alert('Email or Password is Outta Line!!')
+    alert('Email or Password is invalid')
     return
     // Don't continue running the code
   }
@@ -112,6 +124,13 @@ function login () {
 
     alert(error_message)
   })
+  } else {
+      // buttons
+  document.getElementById("age").style.visibility = 'hidden'
+  document.getElementById("gender").style.visibility = 'hidden'
+  document.getElementById("region").style.visibility = 'hidden'
+    isLoginPage = true
+  } 
 }
 
 
@@ -137,6 +156,7 @@ function validate_password(password) {
     return true
   }
 }
+
 
 function validate_field(field){
   if(field==null){
