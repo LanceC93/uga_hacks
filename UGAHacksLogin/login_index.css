@@ -16,14 +16,17 @@ html, body {
     outline: none;
 }
 #content_container {
+    text-align: center;
+    padding-bottom: 4%;
     width: 30%;
     /*changed*/
     height: 60%;
 }
 
 #form_container {
+    /*display: inline-block;*/
     width: 100%;
-    height: 100%;
+    height: auto;
 
     background-color: #370617;
     /* changed box shadow */
@@ -34,8 +37,9 @@ html, body {
 }
 
 #form_header_container {
+    display: inline-block;
     width: 100%;
-    height: 5%;
+    /*height: 5%;*/
 
     display: flex;
     justify-content: center;
@@ -116,6 +120,9 @@ input {
     float: left;
 
     margin-top: 5px;
+    margin-bottom: 30px;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 #button_container button {
