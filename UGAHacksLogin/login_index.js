@@ -74,9 +74,9 @@ function register () {
   })
   } else {
     // adding inputs
-    document.getElementById("age").style.visibility = 'visible'
-    document.getElementById("gender").style.visibility = 'visible'
-    document.getElementById("region").style.visibility = 'visible'
+    document.getElementById("age").style.display = 'block'
+    document.getElementById("gender").style.display = 'block'
+    document.getElementById("region").style.display = 'block'
     isLoginPage = false
   }
 }
@@ -125,10 +125,10 @@ function login () {
     alert(error_message)
   })
   } else {
-      // buttons
-  document.getElementById("age").style.visibility = 'hidden'
-  document.getElementById("gender").style.visibility = 'hidden'
-  document.getElementById("region").style.visibility = 'hidden'
+    // buttons
+    document.getElementById("age").style.display = 'none'
+    document.getElementById("gender").style.display = 'none'
+    document.getElementById("region").style.display = 'none'
     isLoginPage = true
   } 
 }
