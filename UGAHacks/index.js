@@ -345,4 +345,4 @@ window.onload = function() {
   if(app.get_name() != null){
     app.chat()
   }
-}
+}z
