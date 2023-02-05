@@ -73,6 +73,7 @@ function register () {
     alert(error_message)
   })
   } else {
+    document.getElementById("password").placeholder = 'New Password'
     // adding inputs
     document.getElementById("age").style.display = 'block'
     document.getElementById("gender").style.display = 'block'
@@ -126,6 +127,7 @@ function login () {
   })
   } else {
     // buttons
+    document.getElementById("password").placeholder = 'Password'
     document.getElementById("age").style.display = 'none'
     document.getElementById("gender").style.display = 'none'
     document.getElementById("region").style.display = 'none'
