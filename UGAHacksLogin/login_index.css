@@ -17,7 +17,8 @@ html, body {
 }
 #content_container {
     width: 30%;
-    height: 70%;
+    /*changed*/
+    height: 60%;
 }
 
 #form_container {
@@ -25,6 +26,7 @@ html, body {
     height: 100%;
 
     background-color: #370617;
+    /* changed box shadow */
     box-shadow: 0 0 50px -20px #000;
     border-radius: 2%;
 
@@ -41,6 +43,7 @@ html, body {
     float: left;
 
     padding: 20px;
+    /* This is bellow the title */
     padding-bottom: 30px;
     padding-top: 30px;
 
@@ -51,7 +54,7 @@ html, body {
 
 #form_header {
     display: inline-block;
-    font-size: 15px;
+    font-size: 25px;
     font-family: Bowlby One SC;
     font-weight: 900;
     text-transform: uppercase;

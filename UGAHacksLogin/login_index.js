@@ -14,14 +14,18 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth()
 const database = firebase.database()
 
+let x = 0
+
 // Set up our register function
 function register () {
+  document.getElementById("form_header").innerHTML = "Register"
+
+
+  x = 1
   // Get all our input fields
   email = document.getElementById('email').value
   password = document.getElementById('password').value
-  full_name = document.getElementById('full_name').value
-  favourite_song = document.getElementById('favourite_song').value
-  milk_before_cereal = document.getElementById('milk_before_cereal').value
+  region = document.getElementById('region').value
 
   // Validate input fields
   if (validate_email(email) == false || validate_password(password) == false) {
@@ -29,9 +33,10 @@ function register () {
     return
     // Don't continue running the code
   }
-  if (validate_field(full_name) == false || validate_field(favourite_song) == false || validate_field(milk_before_cereal) == false) {
-    alert('One or More Extra Fields is Outta Line!!')
-    return
+
+  if(validate_field(region) == false){
+    alert('No input')
+    return false
   }
 
   // Move on with Auth
@@ -46,9 +51,7 @@ function register () {
     // Create User data
     var user_data = {
       email : email,
-      full_name : full_name,
-      favourite_song : favourite_song,
-      milk_before_cereal : milk_before_cereal,
+      region: region,
       last_login : Date.now()
     }
 
@@ -69,6 +72,8 @@ function register () {
 
 // Set up our login function
 function login () {
+  document.getElementById("form_header").innerHTML = "Login"
+  x = 0
   // Get all our input fields
   email = document.getElementById('email').value
   password = document.getElementById('password').value
@@ -133,14 +138,13 @@ function validate_password(password) {
   }
 }
 
-function validate_field(field) {
-  if (field == null) {
+function validate_field(field){
+  if(field==null){
     return false
   }
-
-  if (field.length <= 0) {
+  if(field.length <= 0){
     return false
-  } else {
+  }else{
     return true
   }
 }
